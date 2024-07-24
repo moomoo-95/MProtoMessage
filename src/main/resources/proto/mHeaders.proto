@@ -1,0 +1,38 @@
+// Author  : Hyeon Seong, Lim
+// Version : 1.0.0
+// History
+//  - 2024-07-24
+//      created
+
+syntax = "proto3";
+// JAVA 패키지 명시 옵션
+option java_package = "com.moomoo.moonect.proto";
+// 생성하려는 JAVA 클래스명
+option java_outer_classname = "MHeaders";
+// JAVA 파일 생성시 분할 여부
+option java_multiple_files = true;
+
+message MHeader {
+    string version = 1;
+    string sender = 2;
+    string messageId = 3;
+    MessageName messageName = 4;
+    uint64 timeStamp = 5;
+    uint32 statusCode = 6;
+
+    enum MessageName {
+        NONE = 0;
+        // Requests
+        M_CONNECT_REQ = 1;
+        M_HEART_BEAT_REQ = 2;
+        M_SESSION_CREATE_REQ = 3;
+        M_SESSION_DELETE_REQ = 4;
+        // Notices
+        M_STATUS_NOTIFY = 5;
+        // Responses
+        M_CONNECT_RES = 6;
+        M_HEART_BEAT_RES = 7;
+        M_SESSION_CREATE_RES = 8;
+        M_SESSION_DELETE_RES = 9;
+    }
+}

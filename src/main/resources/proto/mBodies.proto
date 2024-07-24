@@ -1,0 +1,47 @@
+// Author  : Hyeon Seong, Lim
+// Version : 1.0.0
+// History
+//  - 2024-07-24
+//      created
+
+syntax = "proto3";
+// JAVA 패키지 명시 옵션
+option java_package = "com.moomoo.moonect.proto";
+// 생성하려는 JAVA 클래스명
+option java_outer_classname = "MBodies";
+// JAVA 파일 생성시 분할 여부
+option java_multiple_files = true;
+
+// Connect
+message MConnectReq {
+    string serviceId = 1;
+}
+message MConnectRes {
+    string serviceId = 1;
+}
+// HeartBeat
+message MHeartBeatReq {
+    string serviceId = 1;
+}
+message MHeartBeatRes {
+    string serviceId = 1;
+}
+// Session Create
+message MSessionCreateReq {
+    string sessionId = 1;
+}
+message MSessionCreateRes {
+    string sessionId = 1;
+}
+// Session Delete
+message MSessionDeleteReq {
+    string sessionId = 1;
+}
+message MSessionDeleteRes {
+    string sessionId = 1;
+}
+// Session Status Notify
+message MStatusNotify {
+    string sessionId = 1;
+    uint64 createTime = 2;
+}
